@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Rumblr</title>
+  <link rel="icon" href="#" type="image/gif" sizes="16x16">
+  <link rel="stylesheet" type="text/css" href="main.css">
+</head>
+<body>
+  <% flash.keys.each do |type| %>
+    <div class="flash <%= type %>">
+      <%= flash[type] %>
+      <a class="close-button" href="#">x</a>
+    </div>
+  <% end %>
+
+  <ul class="entrance">
+  <% if session[:user_id] %>
+
+    <!-- only show this code when signed in -->
+
+    <!-- clicking on this link will hit the get "/sign-out" route -->
+    <a href="/sign-out" />Sign out</a>
+
+  <% else %>
+
+    <!-- only show this code when signed out -->
+    <a href="/sign-in" />Sign In</a>
+    <a href="/sign-up" />Sign Up</a>
+
+  <% end %>
+  </ul>
+
+  <%= yield %>
+
+<script type="text/javascript" src="main.js"></script>
+</body>
+</html>
