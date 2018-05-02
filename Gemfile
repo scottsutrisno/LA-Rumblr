@@ -7,4 +7,5 @@ gem "activerecord"
 gem "sqlite3"
 gem "sinatra-activerecord"
 gem "rake"
+gem "sinatra-flash"
 end
