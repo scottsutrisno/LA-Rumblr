@@ -54,3 +54,25 @@ ul {
         transform: scale(1);
     }
 }
+
+.navbar-light .navbar-brand {
+    color: blue;
+}
+
+.navbar-expand-lg .navbar-collapse {}
+
+input {
+    margin: 10px;
+    width: 100%;
+}
+
+form {
+    width: 350px;
+    margin-top: 50px;
+}
+
+body {
+    background-image: url("https://wallpaperscraft.com/image/airplane_sky_flight_clouds_sunset_116695_1920x1080.jpg");
+    background: no-repeat;
+    background-size: 100%;
+}
