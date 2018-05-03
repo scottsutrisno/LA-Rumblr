@@ -4,8 +4,6 @@ require 'sinatra/flash'
 require "sinatra/content_for"
 require "./models"
 
-set :database, "sqlite3:app.db"
-
 configure :development do
   set :database, "sqlite3:app.db"
 end
