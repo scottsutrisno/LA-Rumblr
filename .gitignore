@@ -3,3 +3,4 @@
 
 ---
 BUNDLE_WITHOUT: "production"
+.bundle/config
