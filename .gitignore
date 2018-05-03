@@ -1,0 +1,5 @@
+.bundle/config
+
+
+---
+BUNDLE_WITHOUT: "production"

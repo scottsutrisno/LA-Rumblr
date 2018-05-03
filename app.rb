@@ -5,6 +5,17 @@ require "sinatra/content_for"
 require "./models"
 
 set :database, "sqlite3:app.db"
+
+configure :development do
+  set :database, "sqlite3:app.db"
+end
+
+configure :production do
+  # this environment variable is auto generated/set by heroku
+  #   check Settings > Reveal Config Vars on your heroku app admin panel
+  set :database, ENV["DATABASE_URL"]
+end
+
 enable :sessions
 
 get "/" do
@@ -45,8 +56,7 @@ post "/sign-up" do
     password: params[:password],
     birthday: params[:birthday],
     email: params[:email],
-    firstname: params[:firstname],
-    lastname: params[:lastname]
+   created_at: params[:created_at]
   )
   session[:user_id] = @user.id
   flash[:info] = "Welcome #{params[:name]}"
@@ -67,7 +77,13 @@ get "/settings" do
 end
 
 get "/users" do
- @userlist = User.all.map { |user| "Username: #{user.username}  --  Password: #{user.password}" }.join("  <br>  ")
+ @userlist = User.all.map { |user|
+ "Username: #{user.username}  --
+ Password: #{user.password}  --
+ Birthday: #{user.birthday}  --
+ Email: #{user.email}  --
+ Created At #{user.created_at}
+" }.join("  <br>  ")
 end
 
 get "/profile" do
@@ -76,6 +92,6 @@ erb :profile
 end
 
 get "/profile/:id" do
-@user = User.find(params[:id])
+@user_id = User.find(params[:id]) # finds id
 #  params[:id]
 end
