@@ -3,6 +3,7 @@ require 'sinatra/activerecord'
 require 'sinatra/flash'
 require "sinatra/content_for"
 require "./models"
+require "pry"
 
 configure :development do
   set :database, "sqlite3:app.db"
@@ -71,9 +72,45 @@ get "/sign-out" do
   erb :sign_out
 end
 
-get "/settings" do
-  erb :settings
+
+put "/settings" do
+  @user = User.find(session[:user_id])
+  @user.profiles.update(
+    avatar: params[:avatar]
+  )
+  redirect "/profile"
 end
+
+get "/settings" do
+@user = User.find(session[:user_id])
+erb :settings
+end
+
+
+get "/confirmation" do
+@user = User.find(session[:user_id])
+erb :confirmation
+end
+
+post "/confirmation" do
+
+for post in Post.all
+    if post.user_id == User.find(session[:user_id]).id
+        Post.destroy(post.id)
+    end
+end
+
+@user = User.find(session[:user_id])
+@userdestroy = @user.destroy
+@userdestroy
+
+session[:user_id] = nil
+redirect "/"
+end
+
+
+
+
 
 get "/users" do
  @userlist = User.all.map { |user|
@@ -100,34 +137,13 @@ post "/profile" do
     content: params[:content],
     image: params[:image]
 )
-@profile = Profile.create(
-    user_id: @user.id,
-    avatar: params[:avatar],
-    email: params[:email],
-    first_name: params[:first_name],
-    last_name: params[:last_name],
-    birthday: params[:birthday],
-    gender: params[:gender]
-)
 redirect "/profile"
 end
 
 
 
 
-post "/profiles" do
-@user = User.find(session[:user_id])
-@profile = Profile.create(
-    user_id: @user.id,
-    avatar: params[:avatar],
-    email: params[:email],
-    first_name: params[:first_name],
-    last_name: params[:last_name],
-    birthday: params[:birthday],
-    gender: params[:gender]
-)
-redirect "/profile"
-end
+
 
 
 
@@ -164,27 +180,6 @@ end
 
 
 
-get "/settings" do
-@user = User.find(session[:user_id])
-erb :settings
-end
-
-
-post "/settings" do
-
-for post in Post.all
-    if post.user_id == User.find(session[:user_id]).id
-        Post.destroy(post.id)
-    end
-end
-
-@user = User.find(session[:user_id])
-@userdestroy = @user.destroy
-@userdestroy
-
-session[:user_id] = nil
-redirect "/"
-end
 
 
 get "/profile/:id" do
@@ -192,7 +187,6 @@ get "/profile/:id" do
 @posts = User.find(params[:id]).posts
 erb :user_post
 end
-
 
 
 

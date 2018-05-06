@@ -1,25 +1,15 @@
 
-
-
-    <div class="container">
+<div class="container">
   <div class="row">
-  <div class="col-5">
+    <div class="col-5">
 
-<% @user.posts.all.reverse.each do |p|%>
-<% if p.image == "" %>
-    <br>
+<% @user.profiles.all.reverse.each do |prof|%>
+<% if prof.avatar == "" %>
+  hi
   <% else %>
-    <div id="avatar"><img src="<%= p.image %>"></div>
+    <div id="avatar"><img src="<%= prof.avatar %>"></div>
   <% end %>
   <% end %>
-
-      <form action="/profiles" method="POST" id="userforms">
-<input id="image" type="text" name="avatar" placeholder="Profile picture.."/>
-        <button id="upload">Upload</button>
-        <form>
-
-
-
 
 
 </div>

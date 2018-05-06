@@ -10,6 +10,7 @@ gem "sinatra-activerecord"
 gem "rake"
 gem "sinatra-flash"
 gem "sinatra-contrib"
+gem "pry"
 
 group :development do
   gem "sqlite3"
