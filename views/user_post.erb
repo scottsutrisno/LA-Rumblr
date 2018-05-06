@@ -1,12 +1,15 @@
 
-
-
-    <div class="container">
+<div class="container">
   <div class="row">
-  <div class="col-5">
+    <div class="col-5">
 
-
-<div><img src="<%= params[:avatar] %>"></div>
+<% @user.profiles.all.reverse.each do |prof|%>
+<% if prof.avatar == "" %>
+  hi
+  <% else %>
+    <div id="avatar"><img src="<%= prof.avatar %>"></div>
+  <% end %>
+  <% end %>
 
 
 </div>
@@ -18,10 +21,9 @@
 
   <div class="col-7">
 
-
-
 <% @user.posts.all.reverse.each do |p|%>
  <div class="postss">
+ <a id="delete" href="/deletes/<%= p.id %>">𝕏</a>
  <h2><%= p.title %></h2>
 <br>
 
