@@ -24,9 +24,8 @@ ActiveRecord::Schema.define(version: 2018_05_06_032712) do
   create_table "profiles", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
-    t.string "email"
-    t.integer "birthday"
-    t.integer "about_me"
+    t.datetime "birthday"
+    t.string "about_me"
     t.string "avatar"
     t.string "gender"
     t.datetime "created_at"
@@ -38,7 +37,6 @@ ActiveRecord::Schema.define(version: 2018_05_06_032712) do
     t.string "username"
     t.string "password"
     t.string "email"
-    t.integer "birthday"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
