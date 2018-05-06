@@ -8,15 +8,9 @@
   <title>Rumblr</title>
   <link rel="icon" href="#" type="image/gif" sizes="16x16">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="main.css">
+  <link rel="stylesheet" type="text/css" href="../css/main.css">
 </head>
 <body>
-  <% flash.keys.each do |type| %>
-    <div class="flash <%= type %>">
-      <%= flash[type] %>
-      <a class="close-button" href="#">x</a>
-    </div>
-  <% end %>
 
 
 
@@ -31,23 +25,30 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-    <a class="nav-link" href="/profile">My Profile <span class="sr-only">(current)</span></a>
+
+      <% if session[:user_id] %>
+      <li class="nav-item">
+        <a class="nav-link" href="/profile">Profile</a>
       </li>
       <li class="nav-item">
-      <% if session[:user_id] %>
+        <a class="nav-link" href="/settings">Settings</a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link" href="/sign-out">Sign Out</a>
+      </li>
+
       <% else %>
+      <li class="nav-item">
         <a class="nav-link" href="/sign-up" />Sign Up</a>
+      </li>
       <% end %>
-      </li>
-    </a>
-      </li>
+
     </ul>
-    <form class="form-inline my-2 my-lg-0">
+    <form class="form-inline my-2 my-lg-0" action="/profile/params[:search].id" method="POST">
       <input class="form-control mr-sm-2" name="search" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
+
   </div>
 </nav>
 

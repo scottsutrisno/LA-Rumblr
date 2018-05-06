@@ -1,0 +1,53 @@
+
+
+
+    <div class="container">
+  <div class="row">
+  <div class="col-5">
+
+
+<div><img src="<%= params[:avatar] %>"></div>
+
+
+</div>
+
+
+
+
+
+
+  <div class="col-7">
+
+
+
+<% @user.posts.all.reverse.each do |p|%>
+ <div class="postss">
+ <h2><%= p.title %></h2>
+<br>
+
+
+  <% if p.image == "" %>
+    <br>
+  <% else %>
+    <img src="<%= p.image %>">
+  <% end %>
+<br>
+<br>
+ <%= p.content %>
+ <br>
+ <br>
+</div>
+
+<% end %>
+
+    </div
+  </div>
+   </div>
+
+
+
+
+
+
+
+

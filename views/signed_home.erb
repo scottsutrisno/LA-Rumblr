@@ -1,2 +1,29 @@
 <h1>Welcome, <%= @user.username %></h1>
 
+
+<% @posts.reverse.each do |a| %>
+
+<div class="jumbotron" id="eachbox">
+<a class="btn btn-primary btn-sm" href=/profile/<%=a.user.id%> role="button">@<%=a.user.username%></a>
+
+<% if a.user.id == @user.id %>
+ <a id="delete" href="/delete/<%= a.id %>">𝕏</a>
+<% end %>
+
+  <h1 class="display-4"><%= a.title %></h1>
+ <% if a.image == "" %>
+ <br>
+   <% else %>
+   <div class="lead"><img src="<%= a.image %>">
+ <% end %>
+  <hr class="my-4">
+    <p><%= a.content %></p>
+      <details>
+  <summary>Comments</summary>
+  <p>Content of comments table goes here!</p>
+</details>
+  </div>
+</div>
+
+
+<% end %>

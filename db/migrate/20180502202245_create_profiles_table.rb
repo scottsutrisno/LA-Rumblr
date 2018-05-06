@@ -7,6 +7,7 @@ class CreateProfilesTable < ActiveRecord::Migration[5.2]
     t.integer :birthday
     t.integer :about_me
     t.string :avatar
+    t.string :gender
     t.datetime :created_at
     t.datetime :updated_at
     end

@@ -12,12 +12,10 @@ gem "sinatra-flash"
 gem "sinatra-contrib"
 
 group :development do
-
   gem "sqlite3"
 end
 
 group :production do
-
   gem "pg"
 end
 
