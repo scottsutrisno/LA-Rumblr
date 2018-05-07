@@ -30,17 +30,61 @@ signed_home
  <% if a.image == "" %>
  <br>
    <% else %>
-   <div class="lead"><img src="<%= a.image %>">
+   <div class="lead"><img src="<%= a.image %>"></div>
  <% end %>
   <hr class="my-4">
     <p><%= a.content %></p>
-      <details>
-  <summary>Comments</summary>
-  <p>Content of comments table goes here!</p>
-</details>
+
+
+
+
+
+
+
+
+
+<details>
+  <div class="commentsform">
+
+      <summary>Anonymous Comments</summary>
+      <form action="/signed_home" method="POST" id="commentform">
+        <input id="comment" type="text" name="comment" placeholder="Comment here..."/>
+        <input id="imagecom" type="text" name="imagecom" placeholder="Enter Image URL"/>
+        <button>Post</button>
+      </form>
   </div>
+
+
+
+
+
+
+      <%# <% if post.comment == comment.post_id %>
+
+<% @user.comments.all.reverse.each do |comment|%>
+  <div class="commentsection">
+
+    <p><%= comment.comment %> <%= comment.created_at %></p>
+      <% if comment.image == "" %>
+    <br>
+  <% else %>
+    <img src="<%= comment.image %>">
+  <% end %>
+  </div>
+<% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+</details>
 </div>
-
-
 <% end %>
 

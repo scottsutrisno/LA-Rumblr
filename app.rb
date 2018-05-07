@@ -33,13 +33,32 @@ post "/" do
   @user = User.find_by(username: params[:username])
   if @user && @user.password == params[:password]
     session[:user_id] = @user.id
-    flash[:info] = "Welcome #{params[:username]}"
     redirect "/"
   else
-    flash[:warning] = "Your username or password is incorrect"
     redirect "/"
   end
 end
+
+
+
+
+post "/signed_home" do
+@user = User.find(session[:user_id])
+@post = @user.posts
+@comment = Comment.create(
+    user_id: @user.id,
+    post_id: @post.id,
+    comment: params[:comment],
+    image: params[:image],
+    created_at: params[:created_at]
+)
+redirect "/signed_home"
+
+end
+
+
+
+
 
 
 get "/sign-up" do
@@ -62,7 +81,6 @@ post "/sign-up" do
     avatar: "/images/default.jpg"
   )
   session[:user_id] = @user.id
-  flash[:info] = "Welcome #{params[:name]}"
   redirect "/"
 end
 
