@@ -120,8 +120,6 @@ end
 
 
 
-
-
 get "/users" do
  @userlist = User.all.map { |user|
  "Username: #{user.username}  --
@@ -164,12 +162,6 @@ end
 
 
 
-
-
-
-
-
-
 get "/profile/:id" do
 @user = User.find(params[:id])
 @posts = User.find(params[:id]).posts
@@ -181,6 +173,14 @@ post "/search" do
   redirect "/profile/#{@user.id}"
 end
 
+
+
+
+
+
+get "/comments" do
+
+end
 
 
 
