@@ -47,18 +47,13 @@ post "/signed_home" do
 @post = @user.posts
 @comment = Comment.create(
     user_id: @user.id,
-    post_id: @post.id,
     comment: params[:comment],
     image: params[:image],
     created_at: params[:created_at]
 )
-redirect "/signed_home"
+redirect "/"
 
 end
-
-
-
-
 
 
 get "/sign-up" do
