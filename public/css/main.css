@@ -77,12 +77,12 @@ img {
     color: white;
     border-radius: 8px;
     margin-top: 55px;
+    text-align: center;
 }
 
 .postss img {
-    height: 400px;
+    height: 350px;
     width: inherit;
-    margin-left: 15px;
 }
 
 #eachbox {
