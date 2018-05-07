@@ -162,13 +162,24 @@ redirect "/profile"
 
 end
 
+
+
+
+
+
+
+
+
 get "/profile/:id" do
 @user = User.find(params[:id])
 @posts = User.find(params[:id]).posts
 erb :user_post
 end
 
-
+post "/search" do
+  @user = User.find_by(username: params[:search])
+  redirect "/profile/#{@user.id}"
+end
 
 
 

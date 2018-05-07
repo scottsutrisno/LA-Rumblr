@@ -4,7 +4,16 @@
 <% @posts.reverse.each do |a| %>
 
 <div class="jumbotron" id="eachbox">
+
+<div class="block">
+<% @user.profiles.all.reverse.each do |prof|%>
+<div id="avatarhome"><img src="<%= prof.avatar %>"></div>
+<% end %>
+
 <a class="btn btn-primary btn-sm" href=/profile/<%=a.user.id%> role="button">@<%=a.user.username%></a>
+</div>
+
+
 
 <% if a.user.id == @user.id %>
  <a id="delete" href="/delete/<%= a.id %>">𝕏</a>
