@@ -1,5 +1,5 @@
 body {
-    font-family: 'Do Hyeon', sans-serif;
+    font-family: 'Poiret One', cursive;
 }
 
 ul {
@@ -7,52 +7,8 @@ ul {
     padding: 0;
 }
 
-.flash {
-    border-radius: 2px;
-    padding: 20px;
-    margin-bottom: 10px;
-    position: relative;
-}
-
-.flash.info {
-    background-color: #7cee7c;
-}
-
-.flash.warning {
-    background-color: #ee7c7c;
-}
-
-.flash a,
-.flash a:link,
-.flash a:active,
-.flash a:visited {
-    position: absolute;
-    right: 20px;
-    text-decoration: none;
-    color: black;
-    animation: beckon;
-    animation-duration: 3s;
-    animation-iteration-count: infinite;
-}
-
-.flash a:hover {
-    color: white;
-}
-
-.flash.hide {
-    display: none;
-}
-
-@keyframes beckon {
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.3);
-    }
-    100% {
-        transform: scale(1);
-    }
+h1 {
+    font-size: 72px;
 }
 
 .navbar-light .navbar-brand {
@@ -78,10 +34,14 @@ ul {
 
 .navbar-light .navbar-nav .nav-link {
     color: white;
+    margin-left: 120px;
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+    color: yellow;
 }
 
 input {
-    margin-top: 15px;
     margin-left: 10px;
     width: 47%;
     border-radius: 5px;
@@ -94,7 +54,6 @@ form {
 }
 
 textarea {
-    margin-top: 30px;
     border-radius: 10px;
     border-color: white;
 }
@@ -121,14 +80,14 @@ img {
 
 .postss img {
     height: 400px;
-    width: 600px;
+    width: 578px;
     margin-left: 15px;
 }
 
 #eachbox {
     width: 1200px;
     margin: 0 auto;
-    margin-top: 70px;
+    margin-bottom: 70px;
     background-color: black;
     color: white;
     text-align: center;
@@ -167,7 +126,7 @@ img {
     height: 340px;
     position: absolute;
     margin-top: 50px;
-    border: solid black 4px;
+    border: solid black 3px;
 }
 
 #signin {
@@ -176,4 +135,43 @@ img {
 
 #upload {
     margin-top: 400px;
+}
+
+#logo {
+    height: 100px;
+    width: 115px;
+}
+
+#profileinfo {
+    margin-top: 420px;
+    background-color: white;
+    width: 300px;
+    overflow: auto;
+    padding-left: 10px;
+    border-radius: 10px;
+    border: solid black 3px;
+}
+
+#birthday {
+    margin-left: 28px;
+}
+
+#userform input {
+    margin-bottom: 20px;
+    border: solid black 3px;
+    padding-left: 10px;
+}
+
+#userform textarea {
+    border: solid black 3px;
+}
+
+#userform button {
+    border: solid black 3px;
+    border-radius: 4px;
+    width: 95px;
+}
+
+#userform button:hover {
+    background-color: yellow;
 }

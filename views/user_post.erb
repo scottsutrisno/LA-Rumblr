@@ -4,26 +4,17 @@
     <div class="col-5">
 
 <% @user.profiles.all.reverse.each do |prof|%>
-<% if prof.avatar == "" %>
-  hi
-  <% else %>
-    <div id="avatar"><img src="<%= prof.avatar %>"></div>
-  <% end %>
+  <div id="avatar"><img src="<%= prof.avatar %>"></div>
   <% end %>
 
 
 </div>
 
 
-
-
-
-
   <div class="col-7">
 
 <% @user.posts.all.reverse.each do |p|%>
  <div class="postss">
- <a id="delete" href="/deletes/<%= p.id %>">𝕏</a>
  <h2><%= p.title %></h2>
 <br>
 
@@ -42,7 +33,7 @@
 
 <% end %>
 
-    </div
+    </div>
   </div>
    </div>
 

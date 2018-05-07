@@ -54,9 +54,12 @@ post "/sign-up" do
   @user = User.create(
     username: params[:username],
     password: params[:password],
-    birthday: params[:birthday],
     email: params[:email],
    created_at: params[:created_at]
+  )
+  Profile.create(
+    user_id: @user.id,
+    avatar: "/images/default.jpg"
   )
   session[:user_id] = @user.id
   flash[:info] = "Welcome #{params[:name]}"
@@ -67,15 +70,22 @@ end
 
 
 get "/sign-out" do
-  # this is the line that signs a user out
   session[:user_id] = nil
-  erb :sign_out
+  redirect "/"
 end
 
+
+get "/deleted" do
+  erb :deleted
+end
 
 put "/settings" do
   @user = User.find(session[:user_id])
   @user.profiles.update(
+    first_name: params[:first_name],
+    last_name: params[:last_name],
+    birthday: params[:birthday],
+    about_me: params[:about_me],
     avatar: params[:avatar]
   )
   redirect "/profile"
@@ -105,7 +115,7 @@ end
 @userdestroy
 
 session[:user_id] = nil
-redirect "/"
+redirect "/deleted"
 end
 
 
@@ -115,10 +125,7 @@ end
 get "/users" do
  @userlist = User.all.map { |user|
  "Username: #{user.username}  --
- Password: #{user.password}  --
- Birthday: #{user.birthday}  --
- Email: #{user.email}  --
- Created At #{user.created_at}
+ Password: #{user.password}
 " }.join("  <br>  ")
 end
 
@@ -141,24 +148,6 @@ redirect "/profile"
 end
 
 
-
-
-
-
-
-
-
-
-get "/deleteprofile/:avatar" do
-    profile = Profile.find_by(params[:avatar])
-    Profile.destroy(profile.avatar)
-redirect "/profile"
-
-end
-
-
-
-
 get "/delete/:id" do
     post = Post.find(params[:id])
     Post.destroy(post.id)
@@ -172,15 +161,6 @@ get "/deletes/:id" do
 redirect "/profile"
 
 end
-
-
-
-
-
-
-
-
-
 
 get "/profile/:id" do
 @user = User.find(params[:id])
