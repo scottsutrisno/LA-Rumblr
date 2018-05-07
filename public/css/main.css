@@ -104,8 +104,9 @@ img {
 }
 
 .btn-primary {
+    font-size: 20px;
     float: left;
-    width: 101px;
+    width: 160px;
     background-color: yellow;
     color: black;
     border-color: black;
