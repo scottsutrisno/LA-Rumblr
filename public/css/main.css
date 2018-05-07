@@ -9,6 +9,7 @@ ul {
 
 h1 {
     font-size: 72px;
+    color: white;
 }
 
 .navbar-light .navbar-brand {
@@ -66,8 +67,8 @@ body {
 }
 
 img {
-    width: 900px;
-    height: 500px;
+    height: 555px;
+    width: inherit;
 }
 
 .postss {
@@ -80,7 +81,7 @@ img {
 
 .postss img {
     height: 400px;
-    width: 578px;
+    width: inherit;
     margin-left: 15px;
 }
 
@@ -123,8 +124,8 @@ img {
 }
 
 #avatar img {
-    width: 300px;
-    height: 340px;
+    width: 350px;
+    height: 300px;
     position: absolute;
     margin-top: 50px;
     border: solid black 3px;
@@ -146,7 +147,7 @@ img {
 #profileinfo {
     margin-top: 420px;
     background-color: white;
-    width: 300px;
+    width: 352px;
     overflow: auto;
     padding-left: 10px;
     border-radius: 10px;
@@ -210,7 +211,7 @@ img {
 }
 
 #deletebutton {
-    margin-top: 300px;
+    margin-top: 222px;
     float: right;
 }
 
@@ -220,10 +221,50 @@ img {
 
 #settings textarea {
     border: solid black 3px;
+    margin-bottom: 30px;
 }
 
 #settings button {
     border: solid black 3px;
     border-radius: 6px;
     width: 80px;
+}
+
+#settings {
+    color: white;
+}
+
+.signed_home {
+    background-image: url("/images/signed_home.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100%;
+}
+
+.sign_up {
+    background-image: url("/images/sign_up.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100%;
+}
+
+.profile {
+    background-image: url("/images/pier.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100%;
+}
+
+.confirmation {
+    background-image: url("/images/confirm.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100%;
+}
+
+.settingz {
+    background-image: url("/images/pier2.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100%;
 }

@@ -1,3 +1,7 @@
+<% content_for :body_class do %>
+signed_home
+<% end %>
+
 <h1>Welcome, <%= @user.username %></h1>
 
 
@@ -6,12 +10,22 @@
 <div class="jumbotron" id="eachbox">
 
 <div class="block">
+
+
+
 <% @user.profiles.all.reverse.each do |prof|%>
+
+<% if prof.avatar == "" %>
+<div id="avatarhome"><img src="/images/default.jpg"></div>
+<% elsif %>
 <div id="avatarhome"><img src="<%= prof.avatar %>"></div>
 <% end %>
-
+<% end %>
 <a class="btn btn-primary btn-sm" href=/profile/<%=a.user.id%> role="button">@<%=a.user.username%></a>
 </div>
+
+
+
 
 
 
@@ -36,3 +50,4 @@
 
 
 <% end %>
+
