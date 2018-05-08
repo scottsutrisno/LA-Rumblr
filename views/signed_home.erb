@@ -7,84 +7,53 @@ signed_home
 
 <% @posts.reverse.each do |a| %>
 
-<div class="jumbotron" id="eachbox">
-
-<div class="block">
-
-
-
-
-<a class="btn btn-primary btn-sm" href=/profile/<%=a.user.id%> role="button">@<%=a.user.username%></a>
-</div>
+    <div class="jumbotron" id="eachbox">
+        <div class="block">
+            <a class="btn btn-primary btn-sm" href=/profile/<%=a.user.id%> role="button">@<%=a.user.username%></a>
+        </div>
 
 
 
+        <% if a.user.id == @user.id %>
+        <a id="delete" href="/delete/<%= a.id %>">𝕏</a>
+        <% end %>
+
+        <h1 class="display-4"><%= a.title %></h1>
+        <% if a.image == "" %>
+        <br>
+        <% else %>
+        <div class="lead"><img src="<%= a.image %>"></div>
+        <% end %>
+        <hr class="my-4">
+        <p><%= a.content %></p>
 
 
 
-<% if a.user.id == @user.id %>
- <a id="delete" href="/delete/<%= a.id %>">𝕏</a>
-<% end %>
+        <details>
+            <div class="commentsform">
 
-  <h1 class="display-4"><%= a.title %></h1>
- <% if a.image == "" %>
- <br>
-   <% else %>
-   <div class="lead"><img src="<%= a.image %>"></div>
- <% end %>
-  <hr class="my-4">
-    <p><%= a.content %></p>
-
-
-
-
-
-
-
-
-
-<details>
-  <div class="commentsform">
-
-      <summary>Anonymous Comments</summary>
-      <form action="/signed_home" method="POST" id="commentform">
-        <input id="comment" type="text" name="comment" placeholder="Comment here..."/>
-        <input id="imagecom" type="text" name="imagecom" placeholder="Enter Image URL"/>
-        <button>Post</button>
-      </form>
-  </div>
+                <summary>Anonymous Comments</summary>
+                <form action="/signed_home" method="POST" id="commentform">
+                  <input id="comment" type="text" name="comment" placeholder="Comment here..."/>
+                  <input id="imagecom" type="text" name="imagecom" placeholder="Enter Image URL"/>
+                  <button>Post</button>
+                </form>
+            </div>
 
 
 
 
-
-
-      <%# <% if post.comment == comment.post_id %>
-
-<% @user.comments.all.reverse.each do |comment|%>
-  <div class="commentsection">
-
-    <p><%= comment.comment %> <%= comment.created_at %></p>
-      <% if comment.image == "" %>
-    <br>
-  <% else %>
-    <img src="<%= comment.image %>">
-  <% end %>
-  </div>
-<% end %>
-
-
-
-
-
-
-
-
-
-
-
-
-</details>
-</div>
+            <% @user.comments.all.reverse.each do |comment| %>
+            <div class="commentsection">
+                <p><%= comment.comment %> <%= comment.created_at %></p>
+                <% if comment.image == "" %>
+                <br>
+                <% else %>
+                <img src="<%= comment.image %>">
+                <% end %>
+                </div>
+            <% end %>
+        </details>
+    </div>
 <% end %>
 

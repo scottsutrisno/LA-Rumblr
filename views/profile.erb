@@ -3,75 +3,63 @@ profile
 <% end %>
 
 <div class="container">
-  <div class="row">
-    <div class="col-5">
-      <div>
-        <% @user.profiles.all.reverse.each do |prof|%>
-          <% if prof.avatar == "" %>
-          <% next %>
-          <% else %>
-          <div id="avatar"><img src="<%= prof.avatar %>"></div>
-          <% end %>
-        <% end %>
-      </div>
-      <div id="profileinfo">
-        <% @user.profiles.all.reverse.each do |prof|%>
-            <ul>
-              <li><%= prof.first_name %></li>
-              <li><%= prof.last_name %></li>
-              <li><%= prof.birthday %></li>
-            </ul>
-            <br>
-          <section>
-          <h2><u>Status</u>:</h2>
-          <h3><%= prof.about_me %></h3>
-          </section>
-        <% end %>
-      </div>
+    <div class="row">
+        <div class="col-5">
+            <div>
+                <% @user.profiles.all.reverse.each do |prof|%>
+                <% if prof.avatar == "" %>
+                <% next %>
+                <% else %>
+                <div id="avatar"><img src="<%= prof.avatar %>"></div>
+                <% end %>
+                <% end %>
+            </div>
+            <div id="profileinfo">
+                <% @user.profiles.all.reverse.each do |prof|%>
+                <ul>
+                    <li><%= prof.first_name %></li>
+                    <li><%= prof.last_name %></li>
+                    <li><%= prof.birthday %></li>
+                </ul>
+                <br>
+                <section>
+                    <h2><u>Status</u>:</h2>
+                    <h3><%= prof.about_me %></h3>
+                </section>
+                <% end %>
+            </div>
+        </div>
 
-
-</div>
-
-
-
-
-
-
-
-    <div class="col-7">
-        <form action="/profile" method="POST" id="userform">
-        <input id="title" type="text" name="title" placeholder="Title"/>
-        <input id="image" type="text" name="image" placeholder="Enter Image URL"/>
-            <textarea class="content" rows="6" cols="76" name="content" form="userform">
-    </textarea>
-        <button>Post</button>
-    </form>
+        <div class="col-7">
+            <form action="/profile" method="POST" id="userform">
+                <input id="title" type="text" name="title" placeholder="Title"/>
+                <input id="image" type="text" name="image" placeholder="Enter Image URL"/>
+                <textarea class="content" rows="6" cols="76" name="content" form="userform"></textarea>
+                <button>Post</button>
+            </form>
 
 
 <% @user.posts.all.reverse.each do |p|%>
- <div class="postss">
- <a id="delete" href="/deletes/<%= p.id %>">𝕏</a>
- <h2><%= p.title %></h2>
-<br>
 
-
-  <% if p.image == "" %>
-    <br>
-  <% else %>
-    <img src="<%= p.image %>">
-  <% end %>
-<br>
-<br>
- <%= p.content %>
- <br>
- <br>
+            <div class="postss">
+                <a id="delete" href="/deletes/<%= p.id %>">𝕏</a>
+                <h2><%= p.title %></h2>
+                <br>
+                <% if p.image == "" %>
+                <br>
+                <% else %>
+                <img src="<%= p.image %>">
+                <% end %>
+                <br>
+                <br>
+                <%= p.content %>
+                <br>
+                <br>
+            </div>
+            <% end %>
+        </div
+    </div>
 </div>
-
-<% end %>
-
-    </div
-  </div>
-   </div>
 
 
 

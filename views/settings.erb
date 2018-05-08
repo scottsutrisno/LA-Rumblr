@@ -3,31 +3,28 @@ settingz
 <% end %>
 
 
-    <form action="/settings" method="POST" id="settings">
+<form action="/settings" method="POST" id="settings">
+    <label for="first_name">First Name:</label>
+    <input type="text" name="first_name" id="first_name" placeholder="First Name" value= <%= @user.profiles.first.first_name%>>
+    <br>
 
-        <label for="first_name">First Name:</label>
-        <input type="text" name="first_name" id="first_name" placeholder="First Name" value= <%= @user.profiles.first.first_name%>>
-        <br>
+    <label for="last_name">Last Name:</label>
+    <input type="text" name="last_name" id="last_name" placeholder="Last Name" value= <%= @user.profiles.first.last_name%>>
+    <br>
 
-        <label for="last_name">Last Name:</label>
-        <input type="text" name="last_name" id="last_name" placeholder="Last Name" value= <%= @user.profiles.first.last_name%>>
-        <br>
+    <label for="birthday">Birthday:  </label>
+    <input type="date" name="birthday" id="birthday" value= <%= @user.profiles.first.birthday%>>
+    <br>
+    <br>
 
-        <label for="birthday">Birthday:  </label>
-        <input type="date" name="birthday" id="birthday" value= <%= @user.profiles.first.birthday%>>
-        <br>
-        <br>
+    <label for="about_me">Whats on your mind?</label>
+    <textarea class="about_me" rows="5" cols="70" name="about_me" form="settings"><%= @user.profiles.first.about_me%></textarea>
 
-        <label for="about_me">Whats on your mind?</label>
-        <textarea class="about_me" rows="5" cols="70" name="about_me" form="settings"><%= @user.profiles.first.about_me%></textarea>
+    <input type="hidden" name="_method" value="PUT">
 
-        <input type="hidden" name="_method" value="PUT">
-
-        <label for="avatar">Avatar URL:  </label>
-        <input id="avatar" type="text" name="avatar" value= <%= @user.profiles.first.avatar%>>
-        <button type="submit">Update</button>
-    </form>
-
-
+    <label for="avatar">Avatar URL:  </label>
+    <input id="avatar" type="text" name="avatar" value= <%= @user.profiles.first.avatar%>>
+    <button type="submit">Update</button>
+</form>
 
 <button id="deletebutton"><a href="/confirmation">DELETE ACCOUNT</a></button>
