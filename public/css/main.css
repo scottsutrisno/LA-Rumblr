@@ -68,7 +68,7 @@ body {
 
 img {
     height: 555px;
-    width: inherit;
+    width: 90%;
 }
 
 .postss {
@@ -268,4 +268,11 @@ img {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: 100%;
+}
+
+@media screen and (max-width: 600px) {
+    img {
+        height: 100%;
+        width: 100%;
+    }
 }
