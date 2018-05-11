@@ -270,12 +270,17 @@ img {
     background-size: 100%;
 }
 
+/* w3schools helped with media query */
+
 @media screen and (max-width: 600px) {
     img {
         height: 100%;
         width: 100%;
     }
     .about_me {
+        width: 300px;
+    }
+    #userform textarea {
         width: 300px;
     }
 }
