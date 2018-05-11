@@ -237,7 +237,7 @@ img {
 
 .signed_home {
     background-image: url("/images/signed_home.jpg");
-    background-repeat: no-repeat;
+    background-repeat: no-repeat;    background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: 100%;
 }
@@ -282,5 +282,8 @@ img {
     }
     #userform textarea {
         width: 300px;
+    }
+    body {
+        background-attachment: initial;
     }
 }
