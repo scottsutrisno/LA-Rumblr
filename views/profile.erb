@@ -2,9 +2,8 @@
 profile
 <% end %>
 
-<div class="container">
     <div class="row">
-        <div class="col-5">
+        <div class="col-sm-5">
             <div>
                 <% @user.profiles.all.reverse.each do |prof|%>
                 <% if prof.avatar == "" %>
@@ -30,7 +29,7 @@ profile
             </div>
         </div>
 
-        <div class="col-7">
+        <div class="col-sm-7">
             <form action="/profile" method="POST" id="userform">
                 <input id="title" type="text" name="title" placeholder="Title"/>
                 <input id="image" type="text" name="image" placeholder="Enter Image URL"/>
@@ -39,7 +38,7 @@ profile
             </form>
 
 
-<% @user.posts.all.reverse.each do |p|%>
+            <% @user.posts.all.reverse.each do |p|%>
 
             <div class="postss">
                 <a id="delete" href="/deletes/<%= p.id %>">𝕏</a>
@@ -59,7 +58,7 @@ profile
             <% end %>
         </div
     </div>
-</div>
+
 
 
 

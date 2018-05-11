@@ -82,7 +82,7 @@ img {
 
 .postss img {
     height: 330px;
-    width: inherit;
+    width: 90%;
 }
 
 #eachbox {
@@ -274,5 +274,8 @@ img {
     img {
         height: 100%;
         width: 100%;
+    }
+    .about_me {
+        width: 300px;
     }
 }
