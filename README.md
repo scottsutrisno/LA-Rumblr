@@ -2,7 +2,7 @@
 ## Blogging app for sharing Los Angeles city life
 
 
-## Built with:
+## Tools Used:
 * Ruby
 * Sinatra
 * PostgreSQL
@@ -13,8 +13,9 @@
 * Users can add, read, or delete their personal posts on their blog on both pages
 * Users can edit their own profile including a profile picture
 * Fully mobile-responsive
+* Can sign-in with fake user with username: username, password: password
 
 
-## Ideas from
+## Inspiration:
 * [Tumblr](https://www.tumblr.com)
 * [Twitter](https://www.twitter.com)
